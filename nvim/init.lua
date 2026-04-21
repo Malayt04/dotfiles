@@ -1,5 +1,4 @@
--- Set <space> as leader (must happen before other plugins loaded)
-vim.g.mapleader = ' '
+-- Set <space> as leader (must happen before other plugins loaded)vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Relative line numbers
@@ -56,6 +55,7 @@ vim.pack.add({
 	'https://github.com/goolord/alpha-nvim',
 	'https://github.com/rebelot/kanagawa.nvim',
 	'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+	'https://github.com/supermaven-inc/supermaven-nvim',
 	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') }, -- pinning so rust binary dependency automatically downloads
 })
 
@@ -71,7 +71,7 @@ require('kanagawa').setup({
 		}
 	}
 })
-vim.cmd('colorscheme kanagawa-wave') -- need to call after setup
+vim.cmd('colorscheme kanagawa-dragon') -- need to call after setup
 
 -- Markdown
 require('render-markdown').setup({})
@@ -88,6 +88,15 @@ require('fzf-lua').setup({
 
 vim.keymap.set('n', '<leader><leader>', '<cmd>FzfLua files<cr>', { desc = 'Find files' })
 vim.keymap.set('n', '<leader>/', '<cmd>FzfLua live_grep<cr>', { desc = 'Find live grep' })
+
+-- Supermaven (AI autocomplete)
+require('supermaven-nvim').setup({
+    keymaps = {
+        accept_suggestion = '<Tab>',
+        clear_suggestion = '<C-]>',
+        accept_word = '<C-j>',
+    },
+})
 
 -- Treesitter
 vim.cmd('syntax off') -- Make it obvious if treesitter is missing
@@ -227,6 +236,6 @@ dashboard.section.header.val = vim.split(
         ]], '\n', { trimempty = true })
 dashboard.section.header.opts.hl = 'Comment'
 dashboard.section.buttons.val = {}
-dashboard.section.footer.val = 'PookieVim v3000'
+dashboard.section.footer.val = 'MalayVim'
 dashboard.section.footer.opts.hl = 'Comment'
 alpha.setup(dashboard.opts)
