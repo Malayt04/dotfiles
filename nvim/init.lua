@@ -56,6 +56,7 @@ vim.pack.add({
 	'https://github.com/rebelot/kanagawa.nvim',
 	'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 	'https://github.com/supermaven-inc/supermaven-nvim',
+	'https://github.com/catppuccin/nvim',
 	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') }, -- pinning so rust binary dependency automatically downloads
 })
 
@@ -71,7 +72,23 @@ require('kanagawa').setup({
 		}
 	}
 })
-vim.cmd('colorscheme kanagawa-dragon') -- need to call after setup
+
+require("catppuccin").setup({
+    flavour = "mocha", -- 👈 THIS matches your Ghostty theme
+
+    transparent_background = true, -- matches your terminal transparency
+
+    integrations = {
+        treesitter = true,
+        native_lsp = {
+            enabled = true,
+        },
+        gitsigns = true,
+        telescope = true,
+    },
+})
+
+vim.cmd.colorscheme("catppuccin")
 
 -- Markdown
 require('render-markdown').setup({})
