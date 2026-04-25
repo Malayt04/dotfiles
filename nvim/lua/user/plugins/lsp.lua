@@ -1,12 +1,24 @@
--- LSP config
--- Install: $ uv tool install intelephense
-vim.lsp.enable({
-	'ty',
-	'ruff',
-	'lua_ls',
-	'phpactor', -- PHP LSP (or intelephense)
-})
+-- LSP config (Neovim 0.11+ API)
 
+-- 1. Enable standard servers
+vim.lsp.enable({ 'ruff', 'lua_ls', 'ty' })
+
+-- 2. Configure Intelephense with WordPress stubs
+vim.lsp.config('intelephense', {
+	settings = {
+		intelephense = {
+			stubs = { 
+				"wordpress", "phpunit", "bcmath", "bz2", "calendar", "Core", "curl", "date", "dom", "enchant", "fileinfo", "filter", "gd", "gettext", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "mcrypt", "mysql", "mysqli", "password", "pcntl", "pcre", "PDO", "pdo_mysql", "Phar", "readline", "recode", "Reflection", "session", "SimpleXML", "soap", "sockets", "spl", "standard", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "zip", "zlib" 
+			},
+			files = {
+				maxSize = 5000000;
+			};
+		};
+	},
+})
+vim.lsp.enable('intelephense')
+
+-- 3. Auto-formatting and other features
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
 	callback = function(ev)

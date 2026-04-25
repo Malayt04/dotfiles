@@ -4,6 +4,7 @@ require('user.autocmds')
 
 -- Plugins (order matters for dependencies)
 require('user.plugins.plugins')
+vim.cmd('packloadall')
 require('user.plugins.theme')
 require('user.plugins.lsp')
 require('user.plugins.completion')
@@ -17,6 +18,17 @@ require('user.plugins.markdown')
 require('user.plugins.codediff')
 require('user.plugins.alpha')
 require('user.plugins.terminal')
+require('user.plugins.autopairs')
+require('user.plugins.nvimtree')
 
 -- User config
 require('user.keymaps')
+
+-- Pack management commands
+vim.api.nvim_create_user_command('PackUpdate', function()
+	vim.pack.update()
+end, {})
+
+vim.api.nvim_create_user_command('PackClean', function()
+	vim.pack.clean()
+end, {})

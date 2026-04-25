@@ -1,8 +1,8 @@
 font-family = "Fira Code Regular"
 theme = "Catppuccin Mocha"
-background-opacity = 0.8 
+background-opacity = 0.9 
 background-blur = true
-font-size = 14
+font-size = 20
 
 
 keybind = opt+h=goto_split:left

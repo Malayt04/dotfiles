@@ -16,5 +16,9 @@ vim.pack.add({
 	'https://github.com/catppuccin/nvim',
 	'https://github.com/akinsho/toggleterm.nvim',
 	'https://github.com/christoomey/vim-tmux-navigator',
+	'https://github.com/windwp/nvim-autopairs',
+	'https://github.com/rafamadriz/friendly-snippets',
+	'https://github.com/nvim-tree/nvim-tree.lua',
+	'https://github.com/nvim-tree/nvim-web-devicons',
 	{ src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') },
 })
