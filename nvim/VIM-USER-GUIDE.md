@@ -10,10 +10,11 @@ Complete user guide for your PookieVim configuration.
 4. [LSP & Code Navigation](#lsp--code-navigation)
 5. [Debugging](#debugging)
 6. [Git Integration](#git-integration)
-7. [Window Management](#window-management)
-8. [Text Editing](#text-editing)
-9. [Markdown](#markdown)
-10. [Keybindings Reference](#keybindings-reference)
+7. [Terminal Management](#terminal-management)
+8. [Window Management](#window-management)
+9. [Text Editing](#text-editing)
+10. [Markdown](#markdown)
+11. [Keybindings Reference](#keybindings-reference)
 
 ---
 
@@ -199,17 +200,38 @@ Codediff shows VSCode-style inline diffs.
 
 ---
 
-## Window Management
+## Terminal Management
 
-### Window Navigation
+### ToggleTerm
+
+Manage multiple terminals in sidebars, splits, or floating windows.
 
 | Key | Action |
 |-----|--------|
-| `Ctrl+h` | Move to left window |
-| `Ctrl+l` | Move to right window |
-| `Ctrl+j` | Move to lower window |
-| `Ctrl+k` | Move to upper window |
-| `Ctrl+w` then `w` | Cycle between windows |
+| `<leader>tt` | Toggle default terminal |
+| `<leader>tv` | **Vertical Sidebar Terminal** |
+| `<leader>th` | Horizontal Split Terminal |
+| `<leader>tf` | Floating Terminal |
+| `Ctrl+\` | Toggle current terminal |
+
+**Inside Terminal Mode:**
+- `jk` or `Esc`: Enter Normal Mode
+- `Ctrl+h/j/k/l`: Move focus to adjacent window (seamless transition)
+
+---
+
+## Window Management
+
+### Window Navigation (Tmux Integrated)
+
+Your window navigation is integrated with Tmux. You can move between Neovim splits and Tmux panes using the same keys.
+
+| Key | Action |
+|-----|--------|
+| `Ctrl+h` | Move to left window / pane |
+| `Ctrl+l` | Move to right window / pane |
+| `Ctrl+j` | Move to lower window / pane |
+| `Ctrl+k` | Move to upper window / pane |
 | `Ctrl+w` then `q` | Close current window |
 | `Ctrl+w` then `s` | Split horizontally |
 | `Ctrl+w` then `v` | Split vertically |
@@ -307,7 +329,10 @@ The leader key is `<space>` (spacebar).
 | `<leader>dh` | Debug hover |
 | `-` | Open file explorer |
 | `gd` | Go to definition |
-| `Ctrl+h/j/k/l` | Navigate windows |
+| `Ctrl+h/j/k/l` | Navigate windows / Tmux panes |
+| `<leader>tt` | Toggle terminal |
+| `<leader>tv` | Sidebar terminal |
+| `<leader>tf` | Floating terminal |
 | `<Down>` | Debug step over |
 | `<Right>` | Debug step into |
 | `<Left>` | Debug step out |
