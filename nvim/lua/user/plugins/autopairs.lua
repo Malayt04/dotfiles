@@ -1,3 +1,9 @@
+-- Force Lua to find the plugin
+local ap_path = vim.fn.stdpath("data") .. "/site/pack/core/opt/nvim-autopairs/lua/?.lua"
+if not package.path:find(ap_path, 1, true) then
+    package.path = package.path .. ";" .. ap_path
+end
+
 local status, autopairs = pcall(require, "nvim-autopairs")
 if status then
   autopairs.setup({

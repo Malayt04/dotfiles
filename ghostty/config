@@ -1,9 +1,12 @@
-font-family = "Fira Code Regular"
+font-family = "JetBrainsMono Nerd Font"
 theme = "Catppuccin Mocha"
-background-opacity = 0.9 
-background-blur = true
-font-size = 20
-
+background-opacity = 0.9
+background-blur = 20
+font-size = 14
+window-padding-x = 10
+window-padding-y = 10
+cursor-style = bar
+cursor-style-blink = true
 
 keybind = opt+h=goto_split:left
 keybind = opt+j=goto_split:bottom	

@@ -1,7 +1,7 @@
 -- LSP config (Neovim 0.11+ API)
 
 -- 1. Enable standard servers
-vim.lsp.enable({ 'ruff', 'lua_ls', 'ty', 'ts_ls', 'gopls', 'html', 'cssls' })
+vim.lsp.enable({ 'ruff', 'lua_ls', 'pyright', 'ts_ls', 'gopls', 'html', 'cssls' })
 
 -- 2. Configure Intelephense with WordPress stubs
 vim.lsp.config('intelephense', {

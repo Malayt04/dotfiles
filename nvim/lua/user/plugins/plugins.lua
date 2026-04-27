@@ -10,7 +10,6 @@ vim.pack.add({
 	'https://github.com/kdheepak/lazygit.nvim',
 	'https://github.com/esmuellert/codediff.nvim',
 	'https://github.com/goolord/alpha-nvim',
-	'https://github.com/rebelot/kanagawa.nvim',
 	'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 	'https://github.com/supermaven-inc/supermaven-nvim',
 	'https://github.com/catppuccin/nvim',

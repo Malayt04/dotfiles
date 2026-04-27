@@ -1,16 +1,3 @@
--- Theme config
-require('kanagawa').setup({
-	colors = {
-		theme = {
-			all = {
-				ui = {
-					bg_gutter = "none"
-				}
-			}
-		}
-	}
-})
-
 require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = true,
@@ -20,7 +7,8 @@ require("catppuccin").setup({
             enabled = true,
         },
         gitsigns = true,
-        telescope = true,
+        alpha = true,
+        blink_cmp = true,
     },
 })
 
