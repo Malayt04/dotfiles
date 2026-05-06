@@ -1,7 +1,7 @@
 -- LSP config (Neovim 0.11+ API)
 
 -- 1. Enable standard servers
-vim.lsp.enable({ 'ruff', 'lua_ls', 'pyright', 'ts_ls', 'gopls', 'html', 'cssls' })
+vim.lsp.enable({ 'ruff', 'rust_analyzer', 'lua_ls', 'pyright', 'tsserver', 'gopls', 'html', 'cssls' })
 
 -- 2. Configure Intelephense with WordPress stubs
 vim.lsp.config('intelephense', {
@@ -23,8 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
 	callback = function(ev)
 		local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-		if not client:supports_method('textDocument/willSaveWaitUntil')
-		    and client:supports_method('textDocument/formatting') then
+		if client:supports_method('textDocument/formatting') and not client:supports_method('textDocument/willSaveWaitUntil') then
 			vim.api.nvim_create_autocmd('BufWritePre', {
 				group = vim.api.nvim_create_augroup('my.lsp.fmt', { clear = false }),
 				buffer = ev.buf,

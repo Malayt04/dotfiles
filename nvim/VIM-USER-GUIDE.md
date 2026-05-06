@@ -102,8 +102,13 @@ Complete user guide for your PookieVim configuration.
 ### Language Server Features
 
 The config supports LSP for:
-- Python (ruff, ty)
+- Python (ruff, pyright)
+- Go (gopls)
 - Lua (lua_ls)
+- Rust (rust_analyzer)
+- TypeScript/JavaScript (tsserver)
+- HTML/CSS
+- PHP (intelephense)
 
 ### LSP Commands
 
@@ -267,6 +272,7 @@ Your window navigation is integrated with Tmux. You can move between Neovim spli
 | `u` | Undo |
 | `Ctrl+r` | Redo |
 | `.` | Repeat last command |
+| `jj` | Quick escape from insert mode |
 
 ### In Visual Mode
 
@@ -277,6 +283,9 @@ Your window navigation is integrated with Tmux. You can move between Neovim spli
 | `c` | Change selection |
 | `>` | Indent right |
 | `<` | Indent left |
+| `p` | Paste without yanking (preserves buffer) |
+| `J` | Move selected lines down |
+| `K` | Move selected lines up |
 
 ### Text Objects
 
@@ -338,6 +347,28 @@ The leader key is `<space>` (spacebar).
 | `<Left>` | Debug step out |
 | `<Up>` | Debug restart frame |
 
+### New Keybindings (Custom)
+
+We've added these custom keybindings for a smoother experience:
+
+| Binding | Action |
+|---------|--------|
+| `jj` | Quick escape from insert mode |
+| `n` / `N` | Search next/prev (centered) |
+| `J` | Join lines (centered) |
+| `<` / `>` | Re-indent after selecting |
+| `K` | Move selected lines up (visual) |
+| `J` | Move selected lines down (visual) |
+| `p` | Paste without yanking (visual) |
+
+### Movement Shortcuts
+
+| Binding | Action |
+|---------|--------|
+| `nzzzv` | Next match centered |
+| `Nzzzv` | Previous match centered |
+| `mzJ`z | Join lines centered |
+
 ---
 
 ## Additional Tips
@@ -378,6 +409,16 @@ The leader key is `<space>` (spacebar).
 
 The editor uses **Kanagawa Wave** colorscheme.
 
+### Configuration Features
+
+The config includes these performance optimizations:
+
+| Feature | Setting |
+|---------|---------|
+| Swap files | Disabled (faster) |
+| Undo history | Persistent (10,000 levels) |
+| Auto-reload | Enabled (external changes detected) |
+
 ### Customization
 
 To customize, edit the Kanagawa setup block in `init.lua`:
@@ -407,7 +448,8 @@ Some features require external tools:
 | `tree-sitter-cli` | Syntax highlighting (brew install tree-sitter-cli) |
 | `debugpy` | Python debugging (uv tool install debugpy@latest) |
 | `ruff` | Python linting/formatting (uv tool install ruff@latest) |
-| `ty` | Python type checking (uv tool install ty@latest) |
+| `pyright` | Python type checking (npm install -g pyright) |
+| `gopls` | Go language server (go install golang.org/x/tools/gopls@latest) |
 | `lua-language-server` | Lua LSP (brew install lua-language-server) |
 | `lazygit` | Git TUI (auto-installed by lazygit.nvim or brew install lazygit) |
 
@@ -451,9 +493,10 @@ brew install tree-sitter-cli
 # Check installed LSP servers
 :LspInfo
 
-# Install required tools (ruff, ty, etc.)
+# Install required tools
 uv tool install ruff@latest
-uv tool install ty@latest
+go install golang.org/x/tools/gopls@latest
+npm install -g pyright
 ```
 
 **Debug not working:**

@@ -37,6 +37,31 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- Lazygit
 vim.keymap.set('n', '<leader>g', '<cmd>LazyGit<cr>', { desc = 'Lazygit' })
 
+-- Better window navigation
+vim.keymap.set('n', '<C-h>', '<cmd>TmuxNavigateLeft<cr>', { desc = 'Navigate left' })
+vim.keymap.set('n', '<C-l>', '<cmd>TmuxNavigateRight<cr>', { desc = 'Navigate right' })
+vim.keymap.set('n', '<C-j>', '<cmd>TmuxNavigateDown<cr>', { desc = 'Navigate down' })
+vim.keymap.set('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>', { desc = 'Navigate up' })
+
+-- Center cursor on screen after search
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Center after find next' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Center after find prev' })
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Join lines centered' })
+
+-- Better indenting
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and re-select' })
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and re-select' })
+
+-- Move lines up/down
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
+
+-- Paste without losing buffer
+vim.keymap.set('x', 'p', '"_dP', { desc = 'Paste without yanking' })
+
+-- Quick escape
+vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Quick escape' })
+
 -- Terminal (ToggleTerm)
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = 'Toggle Terminal' })
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { desc = 'Toggle Floating Terminal' })
